@@ -1,10 +1,10 @@
 const songs = [
     {
         file: "music/wave-to-earth.mp3",
-        title: "Knee Socks",
-        author: "Arctic Monkeys",
+        title: "Love.",
+        author: "wave to earth",
         cover: "img/cover1.jpg",
-        start: "03:20"
+        start: "03:39"
     },
     {
         file: "music/song2.mp3",
@@ -82,10 +82,13 @@ function applySongStartTime() {
     }
 
     audioPlayer.currentTime = currentStartTime;
-    currentTimeEl.textContent = "00:00";
+    currentTimeEl.textContent = formatTime(currentStartTime);
 
     if (!isNaN(audioPlayer.duration)) {
-        durationTimeEl.textContent = formatTime(audioPlayer.duration - currentStartTime);
+        durationTimeEl.textContent = formatTime(audioPlayer.duration);
+
+        const initialProgressPercent = (currentStartTime / audioPlayer.duration) * 100;
+        progressBar.style.width = `${Math.max(0, Math.min(initialProgressPercent, 100))}%`;
     }
 
     hasAppliedStartTime = true;
@@ -185,14 +188,12 @@ audioPlayer.addEventListener("timeupdate", () => {
     const duration = audioPlayer.duration;
     const currentTime = audioPlayer.currentTime;
 
-    const clipCurrentTime = Math.max(currentTime - currentStartTime, 0);
-    const clipDuration = !isNaN(duration) ? Math.max(duration - currentStartTime, 0) : 0;
+    currentTimeEl.textContent = formatTime(currentTime);
 
-    currentTimeEl.textContent = formatTime(clipCurrentTime);
-    durationTimeEl.textContent = formatTime(clipDuration);
+    if (!isNaN(duration) && duration > 0) {
+        durationTimeEl.textContent = formatTime(duration);
 
-    if (!isNaN(duration) && duration > currentStartTime) {
-        const progressPercent = ((currentTime - currentStartTime) / (duration - currentStartTime)) * 100;
+        const progressPercent = (currentTime / duration) * 100;
         progressBar.style.width = `${Math.max(0, Math.min(progressPercent, 100))}%`;
     }
 });
@@ -203,16 +204,14 @@ audioPlayer.addEventListener("ended", () => {
 
 progressContainer.addEventListener("click", (e) => {
     const duration = audioPlayer.duration;
-
-    if (isNaN(duration) || duration <= currentStartTime) return;
+    if (isNaN(duration) || duration <= 0) return;
 
     const rect = progressContainer.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
     const width = rect.width;
     const percent = clickX / width;
 
-    const clipDuration = duration - currentStartTime;
-    audioPlayer.currentTime = currentStartTime + (percent * clipDuration);
+    audioPlayer.currentTime = percent * duration;
 });
 
 loadSong(currentSongIndex);
