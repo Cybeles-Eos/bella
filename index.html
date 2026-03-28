@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bellas Birthday</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="hero__overlay">
+            <div class="hero__content">
+
+                <div class="music-player" id="musicPlayer">
+                    <div class="music-player__cover">
+                        <img id="songCover" src="cover1.png" alt="Song Cover">
+                    </div>
+
+                    <div class="music-player__body">
+                        <div class="music-player__meta">
+                            <h3 id="songTitle">Knee Socks</h3>
+                            <p id="songAuthor">Arctic Monkeys</p>
+                        </div>
+
+                        <audio id="audioPlayer"></audio>
+
+                        <div class="music-player__progress-wrap">
+                            <div class="music-player__progress" id="progressContainer">
+                                <div class="music-player__progress-bar" id="progressBar"></div>
+                            </div>
+                            <div class="music-player__time">
+                                <span id="currentTime">00:00</span>
+                                <span id="durationTime">00:00</span>
+                            </div>
+
+
+                        </div>
+
+                        <div class="music-player__controls">
+                            <button id="prevBtn" type="button" aria-label="Previous song">
+                                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="10.6123" cy="10.2464" rx="10.6123" ry="10.2464" transform="rotate(-180 10.6123 10.2464)" fill="white"/>
+                                    <path d="M9.87367 10.2066L15.0821 7.30319L15.0821 13.1099L9.87367 10.2066Z" fill="black"/>
+                                    <path d="M4.63734 10.2066L9.84573 7.30319L9.84573 13.1099L4.63734 10.2066Z" fill="black"/>
+                                </svg>
+                            </button>
+
+                            <button id="playPauseBtn" type="button" aria-label="Play or pause">
+                                <span class="play-icon">
+                                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="11.355" cy="11.355" r="11.355" fill="white"/>
+                                        <path d="M15.5018 11.3983L8.54688 15.4137L8.54688 7.38281L15.5018 11.3983Z" fill="black"/>
+                                    </svg>
+                                </span>
+
+                                <span class="pause-icon" style="display: none;">
+                                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="11.355" cy="11.355" r="11.355" fill="white"/>
+                                        <rect x="8" y="7" width="2.8" height="8.5" rx="1" fill="black"/>
+                                        <rect x="12" y="7" width="2.8" height="8.5" rx="1" fill="black"/>
+                                    </svg>
+                                </span>
+                            </button>
+
+                            <button id="nextBtn" type="button" aria-label="Next song">
+                                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="10.6123" cy="10.2464" rx="10.6123" ry="10.2464" fill="white"/>
+                                    <path d="M11.351 10.2862L6.14258 13.1896L6.14258 7.38281L11.351 10.2862Z" fill="black"/>
+                                    <path d="M16.5873 10.2862L11.3789 13.1896L11.3789 7.38281L16.5873 10.2862Z" fill="black"/>
+                                </svg>
+                            </button>
+
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero__text">
+                    <h1>Dear Bella.</h1>
+                    <p>
+                        Happy birthday. You bring calm to my days and warmth to my
+                        heart. I love your smile, your care, and your quiet strength. I am thankful
+                        for you, today and every day. I Love You always.
+                    </p>
+                </div>
+
+                <div class="hero__scroll">
+                    <span class="hero__scroll-line"></span>
+                    <small>SCROLL</small>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section style="width: 100%; height: 500px;">
+        
+    </section>
+
+    <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script> 
+    <script>
+        // Initialize Lenis
+        const lenis = new Lenis({
+            autoRaf: true,
+        });
+    </script>
+    <script src="main.js"></script>
+    <script>
+    
+    </script>
+</body>
+</html>
