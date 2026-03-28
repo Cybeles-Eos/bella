@@ -169,9 +169,10 @@ body {
 
 .music-player__meta h3 {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    line-height: 1.2;
+    font-size: 14px;
+    line-height: 100%;
     font-weight: 600;
+    margin: 0;
     color: #1f1f1f;
     margin: 0;
 }
