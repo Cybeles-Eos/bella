@@ -216,3 +216,9 @@ progressContainer.addEventListener("click", (e) => {
 
 loadSong(currentSongIndex);
 updatePlayPauseIcon();
+
+
+
+
+
+
