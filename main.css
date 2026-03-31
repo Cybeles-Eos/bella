@@ -486,3 +486,22 @@ body {
 #tago.is-open {
   display: grid; /* use block if your layout breaks */
 }
+
+
+.read{
+    overflow: hidden;
+    max-width: 441px;
+    margin: 0 auto;
+    height: 330px;
+    margin-top: 250px;
+    /* background-color: #17181b; */
+    padding-block: 15px;
+}
+
+.read img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+}

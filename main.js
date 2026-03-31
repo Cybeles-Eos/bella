@@ -1,5 +1,12 @@
 const songs = [
     {
+        file: "music/hehe.mp3",
+        title: "Happy Birthday",
+        author: "HaHa Pa next",
+        cover: "img/gen.webp",
+        start: "00:00"
+    },
+    {
         file: "music/wave-to-earth.mp3",
         title: "Love.",
         author: "wave to earth",
@@ -7,19 +14,13 @@ const songs = [
         start: "03:39"
     },
     {
-        file: "music/song2.mp3",
-        title: "Until I Found You",
-        author: "Stephen Sanchez",
-        cover: "cover2.png",
-        start: "00:00"
+        file: "music/the-1975-about-you.mp3",
+        title: "About You",
+        author: "The 1975",
+        cover: "img/cover2.jpg",
+        start: "03:01"
     },
-    {
-        file: "music/song3.mp3",
-        title: "Yellow",
-        author: "Coldplay",
-        cover: "cover3.png",
-        start: "00:00"
-    }
+
 ];
 
 let currentSongIndex = 0;
@@ -116,8 +117,9 @@ function loadSong(index) {
 }
 
 async function playSong() {
+    
     try {
-        audioPlayer.volume = 0.6;
+        audioPlayer.volume = 0.8;
 
         if (audioPlayer.readyState >= 1 && !hasAppliedStartTime) {
             applySongStartTime();
@@ -152,6 +154,7 @@ function nextSong() {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
     loadSong(currentSongIndex);
     playSong();
+    audioPlayer.volume = 0.6;
 }
 
 function prevSong() {
@@ -171,6 +174,7 @@ prevBtn.addEventListener("click", (e) => {
 });
 
 nextBtn.addEventListener("click", (e) => {
+    
     e.stopPropagation();
     nextSong();
 });
